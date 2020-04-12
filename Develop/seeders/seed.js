@@ -128,7 +128,7 @@ let workoutSeed = [
       {
         type: "cardio",
         name: "Running",
-        duration: 30,
+        duration: 300,
         distance: 2
       }
     ]

@@ -187,13 +187,23 @@ function populateChart(data) {
 }
 
 function duration(data) {
-  let durations = [];
+  // let durations = [];
+
+  // data.forEach(workout => {
+  //   workout.exercises.forEach(exercise => {
+  //     durations.push(exercise.duration);
+  //   });
+  // });
+  let durations = new Array(7).fill(0);
 
   data.forEach(workout => {
+    const dayIndex = new Date(workout.day).getDay()
     workout.exercises.forEach(exercise => {
-      durations.push(exercise.duration);
-    });
-  });
+      durations[dayIndex] += exercise.duration
+    })
+  })
+  
+  console.log(durations)
 
   return durations;
 }

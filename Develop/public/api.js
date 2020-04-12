@@ -1,4 +1,15 @@
 const API = {
+  async getLastWorkoutID() {
+    let res;
+    try {
+      res = await fetch("/api/workouts/ids");
+    } catch (err) {
+      console.log(err)
+    }
+    const json = await res.json();
+
+    return json[json.length - 1];
+  },
   async getLastWorkout() {
     let res;
     try {
@@ -42,4 +53,3 @@ const API = {
     return json;
   },
 };
-module.exports = API;
